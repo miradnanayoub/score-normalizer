@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Plus, Trash2, FileDown, Calculator, Info, Home } from 'lucide-react';
+import { Plus, Trash2, FileDown, Calculator, Info, Home, Heart } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine } from 'recharts';
 
 const ScoreNormalizer = () => {
@@ -79,7 +79,7 @@ const ScoreNormalizer = () => {
 
   // --- Render ---
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 flex flex-col">
       
       {/* Navigation Bar */}
       <nav className="bg-indigo-700 text-white shadow-md">
@@ -105,7 +105,8 @@ const ScoreNormalizer = () => {
         </div>
       </nav>
 
-      <div className="max-w-6xl mx-auto p-4 md:p-8 space-y-6">
+      {/* Main Content Area - Flex Grow ensures footer pushes down */}
+      <div className="max-w-6xl mx-auto p-4 md:p-8 space-y-6 flex-grow w-full">
         
         {/* === ABOUT PAGE === */}
         {activeTab === 'about' && (
@@ -306,6 +307,22 @@ const ScoreNormalizer = () => {
           </div>
         )}
       </div>
+
+      {/* Footer */}
+      <footer className="w-full text-center py-6 text-slate-400 text-sm mt-auto border-t border-slate-200 bg-white">
+        <p className="flex items-center justify-center gap-1.5">
+          Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> by 
+          <a 
+            href="https://www.linkedin.com/in/miradnanayoub" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="font-medium text-indigo-600 hover:text-indigo-800 hover:underline transition-colors"
+          >
+            @miradnanayoub
+          </a>
+        </p>
+      </footer>
+
     </div>
   );
 };
